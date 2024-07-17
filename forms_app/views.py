@@ -56,7 +56,6 @@ class IndexView(View):
         del result_dict['obj_id']
         print(result_dict)
 
-
         try:
             count_number = GroupResultsModel.objects.last().count_number
         except:
@@ -103,10 +102,12 @@ class ShowResultView(View):
             answer_dict = {}
             for answ in answer_groups:
                 temp_list = []
-                results_answers = ResultTableModel.objects.get_queryset().filter(group_number_id=answ.id).order_by('question_id')
+                results_answers = ResultTableModel.objects.get_queryset().filter(group_number_id=answ.id).order_by(
+                    'question_id')
                 answer_dict[answ.count_number] = results_answers
 
-            content = {'columns': columns,
+            content = {'name_of_category': CategoryQuestionModel.objects.get(id=pk).name_category,
+                       'columns': columns,
                        'answer_dict': answer_dict,
                        'len_answer_dict': len(answer_dict)}
             resp = render(request, 'forms_app/results.html', content)

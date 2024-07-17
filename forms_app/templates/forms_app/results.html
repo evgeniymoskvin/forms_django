@@ -30,8 +30,11 @@
 <div class="container">
     <div class="d-flex w-100" id="display_div">
         <div style="width: 100%">
-            <div class="text-36px-bold mt-5">
+            <div class="d-flex text-48px-bold" style="margin-top: 50px">
                 Результаты опроса
+            </div>
+            <div class="d-flex text-32px-light" style="line-height: 120%">
+                "{{ name_of_category }}"
             </div>
             <div class="text-16px-light mt-3"> Всего ответило: {{ len_answer_dict }}</div>
             <div class="mt-3">
