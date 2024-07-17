@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" class="hide-scroll">
+<head>
+    {% load static %}
+    {#    {% load phonebook_tags %}#}
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            {{ name_of_category }}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'forms_app/DataTables/datatables.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'forms_app/Bootstrap-5-5.1.3/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'forms_app/css/forms-style.css' %}"/>
+
+    <script type="text/javascript"
+            src="{% static 'forms_app/Bootstrap-5-5.1.3/js/bootstrap.bundle.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'kks_reestr_app/Bootstrap-5-5.1.3/js/bootstrap.min.js' %}"></script>#}
+    <script type="text/javascript" src="{% static 'forms_app/jQuery-3.6.0/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'forms_app/Bootstrap-5-5.1.3/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'forms_app/DataTables/datatables.js' %}"></script>
+
+
+</head>
+
+<body class="content-fade">
+
+<div class="container">
+    <div class="d-flex container back-search min-vh-100" style="max-width: 859px">
+        <div class="d-flex w-100 align-items-center justify-content-center" id="id_generator_body">
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-column" id="id_title_start">
+                    <div class="d-flex text-48px-bold">
+                        Ошибка доступа
+                    </div>
+                    <div class="d-flex text-32px-light" style="line-height: 120%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+</script>
+
+</body>

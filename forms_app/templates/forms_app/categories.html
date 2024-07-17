@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" class="hide-scroll">
+<head>
+    {% load static %}
+    {#    {% load phonebook_tags %}#}
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            {{ name_of_category }}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'forms_app/Bootstrap-5-5.1.3/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'forms_app/css/forms-style.css' %}"/>
+
+    <script type="text/javascript"
+            src="{% static 'forms_app/Bootstrap-5-5.1.3/js/bootstrap.bundle.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'kks_reestr_app/Bootstrap-5-5.1.3/js/bootstrap.min.js' %}"></script>#}
+    <script type="text/javascript" src="{% static 'forms_app/jQuery-3.6.0/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'forms_app/Bootstrap-5-5.1.3/js/bootstrap.min.js' %}"></script>
+
+
+</head>
+<body class="content-fade">
+<div class="container">
+    <div class="d-flex w-100" id="display_div">
+        <div style="width: 100%">
+            <div class="text-36px-bold mt-5">
+                Выберите опрос:
+            </div>
+
+            <div class="d-flex mt-3">
+                {% for cat in categories %}
+                    <a href="{% url 'results' cat.id %}">{{ cat }}</a>
+                {% endfor %}
+            </div>
+            <div id="loader_tasks" class="d-flex w-100 justify-content-center">
+                <div class="loader-big"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function () {
+        console.log($('#now_category').attr("data-attr"))
+        document.getElementById('obj_id').value = $('#now_category').attr("data-attr")
+    })
+</script>
+
+
+</body>
