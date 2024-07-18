@@ -59,8 +59,8 @@
 }
 
 html {
-    width:100vw;
-    overflow-x:hidden;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .text-48px-bold {
@@ -319,8 +319,11 @@ html {
 
 
 .input_kks {
-    display: none;
-    gap: 20px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    /*display: none;*/
+    /*gap: 20px;*/
 }
 
 .input_kks + label {
@@ -514,7 +517,7 @@ html {
 
 /*Нумерованный список*/
 
-.help_text{
+.help_text {
     opacity: 0;
 }
 
@@ -661,13 +664,13 @@ html {
 }
 
 
-
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                     supported by Chrome, Edge, Opera and Firefox */
 }

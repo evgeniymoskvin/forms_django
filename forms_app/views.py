@@ -14,39 +14,45 @@ class IndexView(View):
     """
 
     def get(self, request):
-        check_category = CategoryQuestionModel.objects.get_queryset().filter(show=True)[0]
-        now_category = check_category.id
-        try:
-            done_test = int(request.COOKIES['done_test'])
-        except:
-            done_test = ''
-        print(done_test)
-        print(now_category)
-        if done_test != now_category:
+        category = CategoryQuestionModel.objects.get_queryset().filter(show=True)
+        if len(category) != 0:
+            check_category = category[0]
+            now_category = check_category.id
+            try:
+                done_test = int(request.COOKIES['done_test'])
+            except:
+                done_test = ''
+            print(done_test)
+            print(now_category)
+            if done_test != now_category:
 
-            questions = QuestionsModel.objects.get_queryset().filter(category_of_question_id=now_category)
-            dict_of_questions = {}
-            for question in questions:
-                answers = AnswerModel.objects.get_queryset().filter(question=question)
-                if len(answers) > 0:
-                    dict_of_questions[question] = answers
-                else:
-                    dict_of_questions[question] = None
+                questions = QuestionsModel.objects.get_queryset().filter(category_of_question_id=now_category)
+                dict_of_questions = {}
+                for question in questions:
+                    answers = AnswerModel.objects.get_queryset().filter(question=question)
+                    if len(answers) > 0:
+                        dict_of_questions[question] = answers
+                    else:
+                        dict_of_questions[question] = None
 
-            name_of_category = check_category.name_category
-            print(dict_of_questions)
-            content = {
-                'now_category': now_category,
-                'name_of_category': name_of_category,
-                'dict_of_questions': dict_of_questions
-            }
-            resp = render(request, 'forms_app/index.html', content)
-            return resp
+                name_of_category = check_category.name_category
+                print(dict_of_questions)
+                content = {
+                    'now_category': now_category,
+                    'name_of_category': name_of_category,
+                    'dict_of_questions': dict_of_questions
+                }
+                resp = render(request, 'forms_app/index.html', content)
+                return resp
+            else:
+                content = {
+                    'now_category': now_category}
+                resp = render(request, 'forms_app/test_done.html', content)
+                return resp
         else:
-            content = {
-                'now_category': now_category}
-            resp = render(request, 'forms_app/test_done.html', content)
-            return resp
+            content = {}
+            resp = render(request, 'forms_app/error_now_question.html', content)
+        return resp
 
     def post(self, request):
         print(request.POST)
